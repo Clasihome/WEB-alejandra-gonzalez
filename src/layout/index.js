@@ -137,17 +137,17 @@ export default ({ children, location }) => {
     `    
   );
 
-  const getFeatured = async(id, typeId, maxProperties)=> {
+  const getFeatured = async(email, id, typeId, maxProperties)=> {
     try{
-      const data = await fetch(`https://api.clasihome.com/rest/properties?id=${id}&typeId=${typeId}&status=PUBLICADA&limit=${maxProperties}&integration=WEB&featured=true`);
+      const data = await fetch(`https://wsnzm.clasihome.com:3443/api/conv/properties?email=xdspropiedades@gmail.com&id=${id}&typeId=${typeId}&status=PUBLICADA&limit=${maxProperties}`);
       //const data = await fetch(`https://api.clasihome.com/rest/properties?id=${id}&typeId=${typeId}&status=PUBLICADA&limit=${maxProperties}`);
       const result = await data.json();
       return result;
     }catch(e){
       console.log("ERROR PROPIEDADES DESTACADAS ", e);
+
     }
   }
-
   const handleData = async()=> {
     const preview = /builderId/.test(location.search);
     const builderId = preview && location.search.match('[?&]' + "builderId" + '=([^&]+)')[1];

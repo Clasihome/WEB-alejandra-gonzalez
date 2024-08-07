@@ -11,9 +11,8 @@ import FormCode from '../forms/code';
 import { Agro } from '../../icons';
 
 const MainCont = styled(Section)`
-  background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url("${props => props.src}");
+  background-color: white;
   background-attachment: fixed;
-  background-position: top;
   background-size: cover;
   color: #fff;
   display: flex;
@@ -21,10 +20,18 @@ const MainCont = styled(Section)`
   align-items: center;
   justify-content: center;
 `
-const Title = styled.h1`
+const Title = styled.h3`
   text-align: center;
-`
+  color: #93a996;
 
+`
+const Divider = styled.div`
+  width: 700px;
+  height: 1px;
+  background-color: #93a996;
+  margin: -8.5rem 0; /* Aumenta el margen superior e inferior */
+  
+`;
 const SearchOptionCont = styled.div`
   display: flex;
   justify-content: center;
@@ -93,7 +100,7 @@ export default ()=> {
 
   return(
     <MainCont 
-      src={state.home.hero.background} first height="100vh"
+      src={state.home.hero.background} first height="75vh"
     >
       <Container>
         <Title id="title" dangerouslySetInnerHTML={{ __html: state.home.hero.title }} />
@@ -113,6 +120,7 @@ export default ()=> {
           :<FormProperty id="formSearch" />
         }
       </Container>
+      <Divider></Divider>
       <DownLink id="downButton" href="#properties">
         <DownOutlined />
       </DownLink>

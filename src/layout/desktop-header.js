@@ -16,6 +16,14 @@ const Header = styled.header`
   width: 100%;
   z-index: 1000;
 `
+const Divider = styled.div`
+  width: 700px;
+  height: 1px;
+  background-color: #eace9d;
+  margin: -4.5rem 0; /* Aumenta el margen superior e inferior */
+  margin-left: auto; /* Desplaza la línea hacia la derecha */
+`;
+
 const Navigation = styled.nav`
   padding: 1rem 0;
   display: flex;
@@ -67,7 +75,9 @@ export default ({ dark })=> {
               </AniLink>                                    
             </NavItem>
           </NavList>
+          
         </Navigation>
+        
       </Container>
     </Header>    
   )

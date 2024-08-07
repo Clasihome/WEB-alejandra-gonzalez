@@ -4,9 +4,9 @@ import styled from 'styled-components';
 
 const Logo = styled.img`
   min-width: 180px;
-  min-height: 81.38px;
+  min-height: 281.38px;
   max-width: 180px;
-  max-height: 81.38px;
+  max-height: 281.38px;
   object-fit: contain;
   object-position: center;
 `

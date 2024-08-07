@@ -4,7 +4,7 @@ export default (data) => {
       builderId: data._id ? data._id : "5fb2a5f3ea262c2e14e462ad",
       typeId: data.user ? "user" : "office",
       officeId: data.user ? data.user : data.office,
-      primaryColor: data.primaryColor ? data.primaryColor : "#dc314f",
+      primaryColor: data.primaryColor ? data.primaryColor : "#93a996",
       address: data.address ? data.address : "chile, santiago. Av 1 calle 2 local 1a",
       email: data.email ? data.email : "contacto@clasihome.com",
       facebook: data.facebook ? data.facebook : "https://facebook.com",
@@ -21,7 +21,7 @@ export default (data) => {
       home:{
         hero: {
           background: data.home && data.home.hero && data.home.hero.background ? data.home.hero.background : require("../images/template-home-hero-background.jpg"),
-          title: data.home && data.home.hero && data.home.hero.title ? data.home.hero.title : "Tenemos propiedades <br /> exclusivas pensadas para tí"
+          title: data.home && data.home.hero && data.home.hero.title ? data.home.hero.title : "Alejandra González - Asesoría inmobiliaria"
         },        
         properties: {
           title: data.home && data.home.properties && data.home.properties.title ? data.home.properties.title : "Contamos con una selección exclusiva de propiedades.",
