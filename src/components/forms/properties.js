@@ -12,33 +12,40 @@ import COMMUNES from '../../constants/CITIES.json';
 import { Button } from '../../styled-components';
 import AniLink from "gatsby-plugin-transition-link/AniLink";
 
-
 const Form = styled.form`
   padding: 0;
-  margin-top: 1rem;
-  @media(min-width: 768px){
+  margin-top: 0.5rem; /* Reduce el margen superior para pantallas pequeñas */
+  
+  @media (min-width: 768px) {
     padding: 0 5%;
-    margin-top: 0;
+    margin-top: 1rem; /* Reduce aún más el margen superior para pantallas grandes */
   }
-`
-const FormInnerCont = styled.div` 
-    margin-bottom: ${props => props.first ? "2rem" : "0" };
+`;
+
+const FormInnerCont = styled.div`
+  margin-bottom: ${props => props.first ? "2rem" : "0"};
+  width: 100%;
+  max-width: 1300px; /* Ensanchar el contenedor a un máximo de 1200px */
+  margin: 0 auto; /* Centrar el contenedor */
+  
   @media(min-width: 768px){
     background-color: #fff;
     border-radius: 6px;
     border: 1px solid #D8D8D8;
     box-shadow: 0px 1px 1px rgba(0, 0, 0, .12), 0px 2px 2px rgba(0, 0, 0, .12), 0px 4px 4px rgba(0, 0, 0, .12), 0px 8px 8px rgba(0, 0, 0, .12), 0px 16px 16px rgba(0, 0, 0, .12);
   }
-`
+`;
+
 const MoreFilterCont = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-`
+`;
+
 const FilterButton = styled.button`
   border: none;
   background-color: transparent;
-  display :flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   color: ${props => props.theme.primaryColor};
@@ -47,9 +54,9 @@ const FilterButton = styled.button`
   &:hover{
     filter: brightness(1.1);
   } 
-`
+`;
 
-export default ({ withFilters, id })=> {
+export default ({ withFilters, id }) => {
   const state = useContext(context);
   const [filter, setFilter] = useState(false);
   const { values, onChange, getUrl, setValues } = useUrlForm({
@@ -66,7 +73,7 @@ export default ({ withFilters, id })=> {
     currency: 'CLP',    
   });
 
-  const handleFilter = ()=> {
+  const handleFilter = () => {
     setValues({
       priceMin: '',
       priceMax: '',
@@ -79,66 +86,110 @@ export default ({ withFilters, id })=> {
     setFilter(!filter);
   }
 
-  useEffect(()=>{
+  useEffect(() => {
     if(filter){
-      gsap.from("#filters", { opacity: 0, y: 10, duration: .5, ease:"back.out(1.7)" });
+      gsap.from("#filters", { opacity: 0, y: 10, duration: .5, ease: "back.out(1.7)" });
     }
-  },[filter])
+  }, [filter]);
 
-  return(
-    <Form
-      id={id}
-      onSubmit={(e)=> e.preventDefault()}
-      withFilters={withFilters}
-    >
+  return (
+    <Form id={id} onSubmit={(e) => e.preventDefault()} withFilters={withFilters}>
       <FormInnerCont first>
-      <Row noGutters>
-        <Col xs={12} md={3}>
-          <Select
-            id="propertyType"
-            onChange={onChange}
-            value={values.propertyType}
-            default="Propiedad"
-            options={PROPERTY_TYPE}
-            primary
-            capitalize
-          />           
-        </Col>
-        <Col xs={12} md={3}>
-          <Select
-            id="operation"
-            onChange={onChange}        
-            value={values.operation}          
-            default="Operación"
-            options={["VENTA", "ARRIENDO"]}
-            primary
-            capitalize
-          />          
-        </Col>
-        <Col xs={12} md={5}>
-          <Autocomplete
-            id="commune"
-            onSelect={onChange}
-            selected={values.commune}
-            options={COMMUNES.map(val => val.name)}
-            placeholder="Comuna"
-          />          
-        </Col>      
-        <Col xs={12} md={1}>
-          <AniLink fade to={getUrl()} duration={.5}>
-            <Button
-              block
+        <Row noGutters className="d-flex align-items-center justify-content-center">
+          <Col xs={13} md={2}>
+            <Select
+              id="propertyType"
+              onChange={onChange}
+              value={values.propertyType}
+              default="Propiedad"
+              options={PROPERTY_TYPE}
               primary
-              type="submit"
-              icon
-              title="Buscar"
-            >
-              <span className="d-xs-block d-md-none">Buscar</span>
-              <SearchOutlined className="d-none d-md-block" />
-            </Button>
-          </AniLink>
-        </Col>
-      </Row>
+              capitalize
+            />           
+          </Col>
+          <Col xs={13} md={2}>
+            <Select
+              id="operation"
+              onChange={onChange}        
+              value={values.operation}          
+              default="Operación"
+              options={["VENTA", "ARRIENDO"]}
+              primary
+              capitalize
+            />          
+          </Col>
+          <Col xs={13} md={2}>
+            <Autocomplete
+              id="commune"
+              onSelect={onChange}
+              selected={values.commune}
+              options={COMMUNES.map(val => val.name)}
+              placeholder="Comuna"
+            />          
+          </Col>    
+          <Col xs={13} md={1}>
+                <Select
+                  id="currency"
+                  onChange={onChange}
+                  value={values.currency}
+                  default="Propiedad"
+                  options={["CLP", "UF"]}
+                  primary
+                  noAll
+                />           
+              </Col> 
+          <Col xs={13} md={1}>
+            <Input
+              id="priceMin"
+              onChange={onChange}
+              value={values.priceMin}
+              placeholder="Desde"
+              primary
+              type="number"
+              min={0}
+            />
+          </Col>
+          <Col xs={13} md={1}>
+            <Input
+              id="priceMax"
+              onChange={onChange}
+              value={values.priceMax}
+              placeholder="Hasta"
+              primary
+              type="number"
+              min={0}
+            />
+          </Col>  
+       
+          <Col xs={13} md={2}>
+                <Input
+                  id="totalAreaFrom"
+                  onChange={onChange}
+                  value={values.totalAreaFrom}
+                  placeholder="Superficie m²"
+                  primary
+                  type="number"
+                  min={0}
+                >
+                </Input>
+              </Col>
+             
+              
+          <Col xs={13} md={1}>
+            <AniLink fade to={getUrl()} duration={.5}>
+              <Button
+                block
+                primary
+                type="submit"
+                icon
+                title="Buscar"
+              >
+                <span className="d-xs-block d-md-none">Buscar</span>
+                <SearchOutlined className="d-none d-md-block" />
+              </Button>
+            </AniLink>
+          </Col>
+        </Row>
       </FormInnerCont>
       {
         withFilters && filter && (
@@ -156,18 +207,7 @@ export default ({ withFilters, id })=> {
                 >
                 </Input>
               </Col>
-              <Col xs={12} md={3}>
-                <Input
-                  id="totalAreaTo"
-                  onChange={onChange}
-                  value={values.totalAreaTo}
-                  placeholder="Superficie hasta m²"
-                  primary
-                  type="number"
-                  min={0}
-                >
-                </Input>
-              </Col>   
+                
               <Col xs={12} md={2}>
                 <Input
                   id="priceMin"

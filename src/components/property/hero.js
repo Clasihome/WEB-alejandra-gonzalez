@@ -168,7 +168,25 @@ const InteractiveAsset = (item, interactive, provider)=> {
     </InteractiveCont>
   )
 }
+const getCategoryByCode = (title) => {
+  if (typeof title !== 'string') {
+    return 'Categoría Desconocida';
+  }
 
+  const categoryMapping = {
+    '4': 'Parcela',
+    '5': 'Local',
+    '1': 'Casa',
+    '3': 'Oficina',
+    '2': 'Departamento',
+  };
+
+  const digits = title.match(/\d/g);
+
+  const foundCategory = digits ? digits.find(digit => categoryMapping[digit]) : null;
+
+  return categoryMapping[foundCategory] || 'Categoría Desconocida';
+};
 export default ()=> {
   const state = useContext(context);
   const {
@@ -186,8 +204,7 @@ export default ()=> {
     code,
   } = state;
   
-  const sortedVideos = videos.sort((a, b) => (a === b) ? 0 : a.interactive? -1 : 1)
-  const gallery = [ ...sortedVideos, ...images].map(item => ({
+  const gallery = [ ...images].map(item => ({
     thumbnail: item.provider ? item.interactive ? "/360-degrees.svg" : "/video.svg" : item.url,
     thumbnailClass: "thumbnail-custom",
     renderItem: () => <InteractiveAsset {...item} />,
@@ -196,6 +213,15 @@ export default ()=> {
   return(
     <Section height="50vh" first>
       <Container>
+      <br></br>
+          <br></br>
+           
+          <br></br>
+          <br></br>
+           
+          <br></br>
+          <br></br>
+           
         <Row className="pt-3">
           <Col xs={12} md={7} className="d-none d-md-block">
             <ImageGalleryCustom
@@ -223,7 +249,7 @@ export default ()=> {
                     {operation.toLowerCase() + " - COD: " + code }
                   </Code>
                   <Title>
-                    {truncate(title, 50)}
+                  {getCategoryByCode(title)} {title.replace(/\d+/, '').trim()}
                   </Title>
                 </div>
                 <div>
@@ -243,7 +269,7 @@ export default ()=> {
                     characteristics.filter(char => (
                       char.name === "Superficie total" ||
                       char.name === "Superficie útil" ||
-                      char.name === "Habitaciones" ||
+                      char.name === "Dormitorios" ||
                       char.name === "Baños" ||
                       char.name === "Estacionamientos"
 
@@ -253,7 +279,7 @@ export default ()=> {
                         {
                           char.name === "Superficie total" && <Surface /> ||
                           char.name === "Superficie útil" && <Surface />  ||
-                          char.name === "Habitaciones" && <Rooms /> ||
+                          char.name === "Dormitorios" && <Rooms /> ||
                           char.name === "Baños" && <Bath /> ||
                           char.name === "Estacionamientos" && <Parking />
                         }

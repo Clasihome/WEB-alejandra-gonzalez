@@ -17,7 +17,7 @@ export default ()=> {
   return(
     <MainCont 
       first
-      height="70vh"
+      height="80vh"
     >
       <Container>
         <FormProperty id="formSearch" withFilters />

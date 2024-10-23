@@ -19,10 +19,11 @@ const MainCont = styled(Section)`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-top:rem;
 `
 const Title = styled.h3`
   text-align: center;
-  color: #93a996;
+  color: ##6d8994;
 
 `
 const Divider = styled.div`
@@ -81,6 +82,24 @@ const DownLink = styled.a`
     filter: brightness(1.1);
   }
 `
+const Video = styled.video`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+`
+const VideoOverLay = styled.div`
+  width: 100%;
+  height: 100%;
+  position: absolute;  
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .2));
+  //z-index: 100;
+`
 
 export default ()=> {
   const state = useContext(context);
@@ -100,8 +119,18 @@ export default ()=> {
 
   return(
     <MainCont 
-      src={state.home.hero.background} first height="75vh"
+      src={state.home.hero.background} first height="90vh"
     >
+      
+     <Video
+          src={require('../../videos/volcan.mp4')}
+          autoPlay
+          loop
+          muted
+          playsinline
+          poster={require('../../videos/volcan.webp')}
+        />         
+        <VideoOverLay /> 
       <Container>
         <Title id="title" dangerouslySetInnerHTML={{ __html: state.home.hero.title }} />
         <SearchOptionCont id="search">

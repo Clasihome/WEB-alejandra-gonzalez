@@ -3,10 +3,10 @@ import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 
 export default ({ lat, lng, height, zoom })=> {
   
-const mapBoxUrl =  "https://api.mapbox.com/styles/v1/felixtineo/ckkigaae20ubv17pelsiz47wg/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiZmVsaXh0aW5lbyIsImEiOiJja2IwdTYzaHQwMDYyMnZvOHltYXJrdmIwIn0.P0lczMOjIif3MGlqroU__A";
+const mapBoxUrl =  "https://api.mapbox.com/styles/v1/clasihome/clg12imq6000p01mm2ahkyyib/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiY2xhc2lob21lIiwiYSI6ImNsZXVqN2M5dzBrNnMzd3BidjhhenQzOWkifQ.9-WGLYsiyhsikDCT5ESfhQ";
 //mapbox://styles/felixtineo/ckkigaae20ubv17pelsiz47wg
 
-//mapbox://styles/felixtineo/ckjsqy8dq3eu419oaxv4azw71
+//mapbox://styles/felixtineo/ckjsqy8dq3eu419oaxv4azw71 https://api.mapbox.com/styles/v1/clasihome/clg12imq6000p01mm2ahkyyib.html?title=view&access_token=pk.eyJ1IjoiY2xhc2lob21lIiwiYSI6ImNsZXVnbnV1ejFtYmgzcHB2MWJ2ZnlzZjMifQ.QfbH0mQA-HSMdZV59AHOpw&zoomwheel=true&fresh=true#2/37.75/-92.25
 //mapbox://styles/felixtineo/ckcd8fl665s3y1inuti4rsg5c
 
   if (typeof window !== 'undefined') {
@@ -23,7 +23,9 @@ const mapBoxUrl =  "https://api.mapbox.com/styles/v1/felixtineo/ckkigaae20ubv17p
         />
       <Marker position={[lat, lng]}/>
     </MapContainer>
+    
     );
+    
   }
-  return <span>a</span>;
+  return <span>a</span>  ;
 }

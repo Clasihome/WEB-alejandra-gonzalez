@@ -234,7 +234,7 @@ export default ()=> {
           <CopyrightInnerCont>
             <span>{new Date().getFullYear()} © Todos los derechos reservados</span>
             <div>
-              Desarrollado por <DevelopedBy href="https://clasihome.com" rel="noopener" target="_blank">Clasihome</DevelopedBy>
+              Desarrollado por <DevelopedBy href="https://www.nexxos.cl" rel="noopener" target="_blank">Nexxos Chile</DevelopedBy>
             </div>
           </CopyrightInnerCont>
         </Container>

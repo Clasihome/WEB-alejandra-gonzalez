@@ -139,7 +139,7 @@ export default ({ children, location }) => {
 
   const getFeatured = async(email, id, typeId, maxProperties)=> {
     try{
-      const data = await fetch(`https://wsnzm.clasihome.com:3443/api/conv/properties?email=xdspropiedades@gmail.com&id=${id}&typeId=${typeId}&status=PUBLICADA&limit=${maxProperties}`);
+      const data = await fetch(`https://wsnzm.clasihome.com:3443/api/conv/properties?email=contacto@iaga.cl&id=${id}&typeId=${typeId}&status=PUBLICADA&limit=${maxProperties}`);
       //const data = await fetch(`https://api.clasihome.com/rest/properties?id=${id}&typeId=${typeId}&status=PUBLICADA&limit=${maxProperties}`);
       const result = await data.json();
       return result;
@@ -204,14 +204,14 @@ export default ({ children, location }) => {
         <MainCont>
           <Helmet>
             <meta charSet="utf-8" />
-            <meta name="description" content="Conectamos clientes con propiedades. Optimiza, gestiona y vende más. La nueva plataforma inmobiliaria que te ayuda a optimizar tu tiempo de trabajo y obtener mejores resultados. Pruébalo gratis por 15 días." />
+            <meta name="description" content="Alejandra Gonzalez, asesoría inmobiliaria." />
             <meta name="keywords" content="clasihome, clasipro, clasihome propiedades chile, tecnología chile, software" />
-            <title>Clasihome - Software Inmobilario de Chile</title>
-            <link rel="canonical" href="https://clasihome.com/" />
-            <meta property="og:url" content="https://clasihome.com/" />
+            <title>Alejandra Gonzalez - Asesoría Inmobiliaría</title>
+            <link rel="canonical" href="https://iaga.cl/" />
+            <meta property="og:url" content="https://iaga.cl/" />
             <meta property="og:title" content="Clasihome - Software Inmobilario de Chile" />
             <meta property="og:description" content="Conectamos clientes con propiedades. Optimiza, gestiona y vende más. La nueva plataforma inmobiliaria que te ayuda a optimizar tu tiempo de trabajo y obtener mejores resultados. Pruébalo gratis por 15 días." />
-            <meta property="og:image" content="https://clasihome.com/logotipo_full.png" />
+            <meta property="og:image" content="https://iaga.cl/static/logo-light-102a2f23b827a0ece2ce427e91d37624.png" />
             <meta name="og:type" content="website" />
             <meta name="theme-color" content={data.data.primaryColor} /> 
           </Helmet>                       

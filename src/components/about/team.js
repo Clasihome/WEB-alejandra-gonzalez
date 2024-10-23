@@ -24,11 +24,12 @@ const Card = styled.div`
   }
 `
 const Avatar = styled.img`
-  width: 160px;
-  height: 160px;
+  width:360px;
+  height: 500px;
   object-fit: cover;
   object-position: center;
   margin-bottom: 2rem;
+  border-radius:3px;
 `
 const NoAvatar = styled.div`
   width: 160px;
@@ -63,9 +64,9 @@ const User = ({ avatar, cv, email, fullName, phone }) => (
       :<NoAvatar>{fullName}<span>Sin avatar</span></NoAvatar>
     }
     <Info>{fullName}</Info>
-    <Resume>
+    {/*<Resume>
       {cv}
-    </Resume>
+    </Resume>*/}
     <Info>{email}</Info>
     <Info>{phone}</Info>
   </Card>
@@ -84,7 +85,7 @@ export default ()=> {
           </Col>
           {
             state.about.team.items.map(item => (
-              <Col key={uuid()} xs={12} md={4} lg={3}>
+              <Col key={uuid()} xs={12} md={12}>
                 <User {...item} />
               </Col>
             ))

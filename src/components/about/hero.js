@@ -6,7 +6,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import { Section } from '../../styled-components';
 
 const MainCont = styled(Section)`
-  background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url("${props => props.src}");
+
   //background-attachment: fixed;
   background-position: bottom;
   background-size: cover;
@@ -25,18 +25,20 @@ export default ()=> {
   return(
     <MainCont 
       first
-      height="70vh"
+      height="20vh"
       src={state.about.hero.background}
     >
       <Container>
-        <Row>
+        {/*<Row>
           <Col xs={12} md={6}>
             <Title>
               {state.about.hero.title}
             </Title>
           </Col>
-        </Row>
+        </Row>*/}
       </Container>
     </MainCont>
   )
 }
+
+ {/*  background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url("${props => props.src}");*/}

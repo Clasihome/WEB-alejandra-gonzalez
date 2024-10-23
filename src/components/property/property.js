@@ -89,6 +89,9 @@ export default ()=> {
   });
   return(    
     <Fragment>
+        <br></br>
+          <br></br>
+           
       <CharsContainer more={more.chars}>
         <Title>Caracteristicas</Title>  
         <Row>
@@ -138,8 +141,8 @@ export default ()=> {
               Ubicación   
             </MapTitle>
               <Map
-              lat={parseFloat(state.ubication.location.coordinates[1])}
-              lng={parseFloat(state.ubication.location.coordinates[0])}
+              lat={parseFloat(state.ubication.location.coordinates[0])}
+              lng={parseFloat(state.ubication.location.coordinates[1])}
               height={300}
               zoom={18}
             />      

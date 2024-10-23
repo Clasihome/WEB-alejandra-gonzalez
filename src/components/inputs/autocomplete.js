@@ -114,7 +114,7 @@ export default ({ selected, onSelect, id, placeholder, options, gray, shadow, pr
       setState({ loading: true });
       try{
         setValue(value);
-        const propertiesUrl = `https://api.clasihome.com/rest/properties?id=${contextData.officeId}&typeId=${contextData.typeId}&status=PUBLICADA&stringSearch=${value}`;
+        const propertiesUrl = `https://wsnzm.clasihome.com:3443/api/conv/properties?id=${contextData.officeId}&typeId=${contextData.typeId}&status=PUBLICADA&stringSearch=${value}`;
         const data = await fetch(propertiesUrl);
         const result = await data.json();
         setState({ data: value.length ? result.properties : [], loading: false });

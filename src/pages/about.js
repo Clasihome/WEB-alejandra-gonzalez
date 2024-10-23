@@ -7,6 +7,7 @@ import Stats from '../components/about/stats';
 import Team from '../components/about/team';
 import Ubication from '../components/ubication';
 import Contact from '../components/contact';
+import Nexxos  from '../components/about/nexxos'
 
 export default ()=> {
 
@@ -15,9 +16,10 @@ export default ()=> {
       <Hero />
       <History />
       <Description />
-      <Stats />
+    
       <Team />
-      <Ubication />
+      <Nexxos/>
+     {/*<Ubication />  <Stats />*/}
       <Contact />
     </Fragment>
   )

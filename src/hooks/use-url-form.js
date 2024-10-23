@@ -16,7 +16,7 @@ export default (values)=> {
   }
 
   const getUrl = ()=> {
-    const fixedParams = `/properties/?status=PUBLICADA,ARRENDADA,VENDIDA&limit=12&typeId=${typeId}&id=${officeId}`;
+    const fixedParams = `/properties/?email=contacto@iaga.cl&status=PUBLICADA,ARRENDADA,VENDIDA&limit=12&typeId=${typeId}&id=${officeId}`;
     if(params.stringSearch !== ''){
       return fixedParams + `searchString=${params.searchString}`;
     }
